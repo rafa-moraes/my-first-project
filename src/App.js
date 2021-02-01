@@ -8,8 +8,6 @@ function Helloworld (props) {
 }
 
 
-
-
 function App() {
   return (
     <div>
