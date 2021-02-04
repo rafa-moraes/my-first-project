@@ -1,10 +1,11 @@
 import React from 'react'
+import './Task.css'
 
 class Task extends React.Component{
     render() {
         const {task} = this.props
         
-        return <div>
+        return <div className="red">
         {task.title} - 
         {task.description} - 
         {task.id}

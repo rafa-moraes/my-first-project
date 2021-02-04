@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import tasks from './sample/task.json'
 import Tasks from './components/Tasks.js'
+
                 // Learning the basics of React
 
 // function Helloworld (props) {
