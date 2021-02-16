@@ -10,7 +10,7 @@ export default class TaskForm extends React.Component {
 
 
     submit = (e) => {
-        console.log(this.state)
+        this.props.adding(this.state.title, this.state.description)
         e.preventDefault()
 
     }
@@ -21,23 +21,23 @@ export default class TaskForm extends React.Component {
     }
     
     render () {
-
+        
         return (
         <form onSubmit = {this.submit}>
             <input 
-            type="text" 
-            placeholder="White a text" 
-            onChange ={this.changes} 
-            name="title" 
-            value ={this.state.title}
+                type="text" 
+                placeholder="White a text" 
+                onChange ={this.changes} 
+                name="title" 
+                value ={this.state.title}
             />
             <br/>
             <br/>
             <textarea 
-            placeholder="Write a description" 
-            onChange ={this.changes} 
-            name="description" 
-            value ={this.state.description}
+                placeholder="Write a description" 
+                onChange ={this.changes} 
+                name="description" 
+                value ={this.state.description}
             />
             <button type="submit">Send</button>            
 
