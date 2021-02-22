@@ -5,7 +5,8 @@ import tasks from './sample/task.json'
 import Tasks from './components/Tasks.js'
 import TaskForm from './components/TaskForm.js'
 
-                // Learning the basics of React
+                /* Learning the basics of React
+
 
 // function Helloworld (props) {
 //   return (
@@ -49,10 +50,10 @@ import TaskForm from './components/TaskForm.js'
 //       <h3><Helloworld myText="Howdy boy"/></h3>
 //     </div>
 //   );
-// }
+ }*/
 
 
-//                  New application
+                  // New application
 
 class App extends React.Component{
   state = {
@@ -71,11 +72,31 @@ addTask = (title, description) => {
   console.log(newTask)
 }
 
+deleteTask = (id) => {
+  const newTasks = this.state.tasks.filter(task => task.id !== id)
+  this.setState({tasks: newTasks})
+  console.log(newTasks)
+}
+
+checkDone = (id) => {
+  const isDone = this.state.tasks.map( task => {
+    if(task.id === id){
+      task.done = !task.done
+    }
+    return task
+  })
+  this.setState({tasks: isDone })
+}
+
   render () {
     return <div>
       <TaskForm adding={this.addTask}/>
       <br/>
-      <Tasks tasks={this.state.tasks}/>
+      <Tasks 
+        tasks={this.state.tasks} 
+        deleteTask={this.deleteTask}
+        checkDone = {this.checkDone}
+      />
       
     </div>
   }
