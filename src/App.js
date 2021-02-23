@@ -4,6 +4,8 @@ import tasks from './sample/task.json'
 
 import Tasks from './components/Tasks.js'
 import TaskForm from './components/TaskForm.js'
+import Posts from './components/Posts.js'
+
 
                 /* Learning the basics of React
 
@@ -97,6 +99,7 @@ checkDone = (id) => {
         deleteTask={this.deleteTask}
         checkDone = {this.checkDone}
       />
+      <Posts />
       
     </div>
   }
