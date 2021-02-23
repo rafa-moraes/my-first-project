@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import tasks from './sample/task.json'
-
+import {BrowserRouter, Route, Link} from 'react-router-dom'
 import Tasks from './components/Tasks.js'
 import TaskForm from './components/TaskForm.js'
 import Posts from './components/Posts.js'
@@ -91,17 +91,28 @@ checkDone = (id) => {
 }
 
   render () {
-    return <div>
+    return <BrowserRouter>
+    <Link to='/'>Home </Link>
+    <br/>
+    <Link to='/posts'>Posts </Link>
+    <Route exact path='/' render={() => {
+      return <div>
       <TaskForm adding={this.addTask}/>
-      <br/>
-      <Tasks 
-        tasks={this.state.tasks} 
-        deleteTask={this.deleteTask}
-        checkDone = {this.checkDone}
-      />
-      <Posts />
-      
-    </div>
+        <br/>
+        <Tasks 
+          tasks={this.state.tasks} 
+          deleteTask={this.deleteTask}
+          checkDone = {this.checkDone}
+        />
+      </div>
+    }}/>    
+    <Route 
+        path='/posts' component={Posts}
+    
+    />
+             
+    </BrowserRouter>
+    
   }
 
 
